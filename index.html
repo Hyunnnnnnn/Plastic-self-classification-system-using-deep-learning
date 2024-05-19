@@ -2,37 +2,26 @@
 <html>
 <head>
     <title>Camera Stream</title>
-    <style>
-        /* 카메라 컨테이너 스타일 */
-        .camera-container {
-            width: 640px;
-            height: 480px;
-            border: 2px solid #ddd; /* 테두리 스타일 및 색상 */
-            border-radius: 10px; /* 테두리 모서리 둥글게 만들기 */
-            overflow: hidden; /* 내용이 넘칠 경우 가려지도록 설정 */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
-            margin: 0 auto; /* 가운데 정렬 */
-        }
-
-        /* 카메라 이미지 스타일 */
-        .camera-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* 제목 스타일 */
-        h1 {
-            text-align: center; /* 가운데 정렬 */
-            color: #333; /* 제목 색상 */
-            font-family: Arial, sans-serif; /* 폰트 설정 */
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>카메라 스트림</h1>
-    <div class="camera-container">
-        <img class="camera-image" src="{% url 'video_feed' %}" alt="Camera Stream">
+    <div class="header">
+        <h1>캡스톤디자인 9조</h1>
     </div>
+    <div class="container">
+        <button id="open-popup-button" class="button">재활용 분류 머신</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>카메라 스트림</h2>
+            <img class="camera-image" src="{% url 'video_feed' %}" alt="Camera Stream">
+            <button id="close-popup-button" class="close-button">닫기</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
